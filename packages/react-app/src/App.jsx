@@ -162,7 +162,7 @@ function App(props) {
 
   // Then read your DAI balance like:
   const myMainnetDAIBalance = useContractReader(mainnetContracts, "DAI", "balanceOf", [
-    "0x34aA3F359A9D614239015126635CE7732c18fDF3",
+    "0xb43F7be1CbBB7c96AeAEaff4598044052a8A2097",
   ]);
 
   // keep track of a variable from the contract in the local React state:

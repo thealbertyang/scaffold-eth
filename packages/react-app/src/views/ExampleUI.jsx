@@ -43,12 +43,12 @@ export default function ExampleUI({
                   console.log(" 🍾 Transaction " + update.hash + " finished!");
                   console.log(
                     " ⛽️ " +
-                      update.gasUsed +
-                      "/" +
-                      (update.gasLimit || update.gas) +
-                      " @ " +
-                      parseFloat(update.gasPrice) / 1000000000 +
-                      " gwei",
+                    update.gasUsed +
+                    "/" +
+                    (update.gasLimit || update.gas) +
+                    " @ " +
+                    parseFloat(update.gasPrice) / 1000000000 +
+                    " gwei",
                   );
                 }
               });
@@ -65,7 +65,7 @@ export default function ExampleUI({
         <Divider />
         ENS Address Example:
         <Address
-          address="0x34aA3F359A9D614239015126635CE7732c18fDF3" /* this will show as austingriffith.eth */
+          address="0xb43F7be1CbBB7c96AeAEaff4598044052a8A2097" /* this will show as austingriffith.eth */
           ensProvider={mainnetProvider}
           fontSize={16}
         />
@@ -194,16 +194,16 @@ export default function ExampleUI({
           <div style={{ marginTop: 8 }}>
             Date Pickers?
             <div style={{ marginTop: 2 }}>
-              <DatePicker onChange={() => {}} />
+              <DatePicker onChange={() => { }} />
             </div>
           </div>
 
           <div style={{ marginTop: 32 }}>
-            <Slider range defaultValue={[20, 50]} onChange={() => {}} />
+            <Slider range defaultValue={[20, 50]} onChange={() => { }} />
           </div>
 
           <div style={{ marginTop: 32 }}>
-            <Switch defaultChecked onChange={() => {}} />
+            <Switch defaultChecked onChange={() => { }} />
           </div>
 
           <div style={{ marginTop: 32 }}>

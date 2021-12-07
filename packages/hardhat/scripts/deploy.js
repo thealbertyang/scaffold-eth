@@ -30,7 +30,7 @@ const main = async () => {
   // use for local token bridging
   // const mockToken = await deploy("MockERC20") // <-- add in constructor args like line 19 vvvv
 
-  //const yourContract = await ethers.getContractAt('YourContract', "0xaAC799eC2d00C013f1F11c37E654e59B0429DF6A") //<-- if you want to instantiate a version of a contract at a specific address!
+  //const yourContract = await ethers.getContractAt('YourContract', "0xb43F7be1CbBB7c96AeAEaff4598044052a8A2097") //<-- if you want to instantiate a version of a contract at a specific address!
   //const secondContract = await deploy("SecondContract")
 
   // const exampleToken = await deploy("ExampleToken")
@@ -97,9 +97,8 @@ const deploy = async (
     const gasUsed = deployed.deployTransaction.gasLimit.mul(
       deployed.deployTransaction.gasPrice
     );
-    extraGasInfo = `${utils.formatEther(gasUsed)} ETH, tx hash ${
-      deployed.deployTransaction.hash
-    }`;
+    extraGasInfo = `${utils.formatEther(gasUsed)} ETH, tx hash ${deployed.deployTransaction.hash
+      }`;
   }
 
   console.log(

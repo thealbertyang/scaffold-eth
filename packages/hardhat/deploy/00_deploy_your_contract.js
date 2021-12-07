@@ -2,7 +2,7 @@
 
 const { ethers } = require("hardhat");
 
-const localChainId = "31337";
+const localChainId = "1337";
 
 module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deploy } = deployments;
@@ -18,8 +18,8 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
 
   // Getting a previously deployed contract
   const YourContract = await ethers.getContract("YourContract", deployer);
-  /*  await YourContract.setPurpose("Hello");
-  
+  await YourContract.setPurpose("Hello");
+  /*
     To take ownership of yourContract using the ownable library uncomment next line and add the 
     address you want to be the owner. 
     // yourContract.transferOwnership(YOUR_ADDRESS_HERE);
