@@ -2,7 +2,7 @@
 
 const { ethers } = require("hardhat");
 
-const localChainId = "1337";
+const localChainId = "31337";
 
 const sleep = (ms) =>
   new Promise((r) =>
