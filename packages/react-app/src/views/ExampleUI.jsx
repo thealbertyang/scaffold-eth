@@ -4,14 +4,6 @@ import { Button, Card, DatePicker, Divider, Input, Progress, Slider, Spin, Switc
 import React, { useState } from "react";
 import { Address, Balance, Events } from "../components";
 
-const displayFinances = (Finances = []) => {
-  console.log('toJson', JSON.stringify(Finances))
-
-  return [...Finances.entries()].map(([ financeKey, financeVal], key) => {
-    console.log('finance', financeKey, financeVal, key);
-  });
-}
-
 export default function ExampleUI({
   purpose,
   finances,
@@ -25,9 +17,7 @@ export default function ExampleUI({
   writeContracts,
 }) {
   const [newPurpose, setNewPurpose] = useState("loading...");
-  const [Finances, setFinances] = useState(finances);
-
-  console.log('Finances', Finances)
+  const [userFinances, setUserFinances] = useState(finances);
 
   return (
     <div>
@@ -42,22 +32,39 @@ export default function ExampleUI({
         <div style={{ margin: 8 }}>
           <Input
             onChange={e => {
-              setFinances({ ...Finances, name: e.target.value });
+              setUserFinances({ ...userFinances, name: e.target.value });
             }}
             placeholder={`Name`}
           />
           <Input
             onChange={e => {
-              setFinances({ ...Finances, amount: e.target.value });
+              setUserFinances({ ...userFinances, amount: e.target.value });
             }}
             placeholder={`Amount`}
           />
           <Button
             style={{ marginTop: 8 }}
+            onClick={() => {
+                finances.filter((wat,waa) => {
+                  console.log('wat', wat)
+                  console.log('waa', waa)
+                });
+            }}>
+              Log Finances
+          </Button>
+          <Button
+            style={{ marginTop: 8 }}
             onClick={async () => {
               /* look how you call setPurpose on your contract: */
               /* notice how you pass a call back for tx updates too */
-              const result = tx(writeContracts.YourContract.setPurpose(newPurpose), update => {
+              const financeUpdate = {
+                address,
+                name: userFinances.name,
+                amount: BigNumber.from(userFinances.amount).toString()
+              }
+              console.log('financeUpdate', financeUpdate)
+
+              const result = tx(writeContracts.YourContract.setFinances(...Object.values(financeUpdate)), update => {
                 console.log("📡 Transaction Update:", update);
                 if (update && (update.status === "confirmed" || update.status === 1)) {
                   console.log(" 🍾 Transaction " + update.hash + " finished!");

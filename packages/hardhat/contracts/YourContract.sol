@@ -16,6 +16,7 @@ contract YourContract {
     event SetPurpose(address sender, string purpose);
 
     //address public owner = 0xb43F7be1CbBB7c96AeAEaff4598044052a8A2097;
+    // uint256 = 329974300448100608374211110737048701521
     string public purpose = "Building Unstoppable Apps!!!";
     
     mapping(address => Finances) finances;
@@ -27,7 +28,7 @@ contract YourContract {
     }
 
     function getFinances() public view returns (Finances memory) {
-        Finances storage _finances = finances[msg.sender];
+        Finances storage _finances = finances[0x4E6B6B125B965A4e7CA9A6402FFD7C2Af2381777];
         return _finances;
     }
 
@@ -36,13 +37,13 @@ contract YourContract {
         return _finances;
     }
 
-    function setFinances(address user, string calldata _name, uint256 _amount) public {
+    function setFinances(address user, string calldata name, uint256 amount) public {
         Finances memory _finances = Finances({ 
-            name: _name,
-            amount: _amount
+            name: name,
+            amount: amount
         });
         finances[user] = _finances;
-        console.log(msg.sender, "set finances to", _amount);
+        console.log(msg.sender, "set finances to", amount);
     }
 
     function setPurpose(string memory newPurpose) public {
